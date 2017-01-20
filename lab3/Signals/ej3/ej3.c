@@ -5,9 +5,7 @@
 #include <signal.h>
 #include <stdlib.h>
 
-int main() {
-
-    setenv("SLEEP_SECS","10",1);
+int main(int argc, char **argv) {
 
     sigset_t blk_set;
 
@@ -35,6 +33,8 @@ int main() {
 
     if(sleep_secs == NULL) {
         printf("Can't get SLEEP_SECS\n");
+        printf("May be you need to specify env var:\n");
+        printf("SLEEP_SECS=<value> %s\n", argv[0]);
         return -1;
     }
 
@@ -42,6 +42,8 @@ int main() {
 
     if(secs<0)
         secs=0;
+
+    printf("I am going to sleep %i seconds now\n", secs);
 
     sleep(secs);
 
