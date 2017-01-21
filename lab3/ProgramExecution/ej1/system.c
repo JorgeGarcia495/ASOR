@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 		cmdLen += strlen(argv[i])+1;
 
 	char *command = malloc(sizeof(char)*cmdLen);
-//	strcpy(command,"");
+
 	for(i=1;i<argc;i++) {
 		strcat(command, argv[i]);
 		strcat(command, " ");

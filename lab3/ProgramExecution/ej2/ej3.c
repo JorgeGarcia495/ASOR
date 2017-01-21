@@ -28,6 +28,9 @@ int main(int argc, char **argv) {
 			break;
 
 		case 0:
+
+            /* Child */
+
 			if(setsid() == -1) {
 
 				printf("Can't create new session: %s\n", strerror(errno));
