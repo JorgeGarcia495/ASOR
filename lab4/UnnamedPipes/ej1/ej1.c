@@ -11,7 +11,6 @@
 int main(int argc, char **argv) {
 
     int fd_pipe[2];
-    char *buf;
     pid_t pid;
 
     if(argc < 2) {
