@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
     rc = getaddrinfo(argv[1], argv[2], &hints, &result);
 
     if(rc != 0) {
-        printf("Error getting addrinfo: %s\n", gai_strerror(rc));
+        printf("Error getting addrinfo: %s\n", gai_strerror((int)rc));
         return -1;
     }
 
@@ -54,7 +54,9 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    struct sockaddr client;
+    freeaddrinfo(result);
+
+    struct sockaddr_storage client;
     socklen_t client_len = sizeof(client);
 
     while (!finish) {
